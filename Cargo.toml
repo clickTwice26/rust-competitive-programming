@@ -1,11 +1,12 @@
 [workspace]
+resolver = "2"
 members = [
     "codeforces",
     "leetcode",
     "cses"
 ]
 
-[workspace.profile.release]
+[profile.release]
 opt-level = 3
 debug = false
 panic = "abort"
