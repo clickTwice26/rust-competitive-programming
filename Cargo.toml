@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "codeforces",
+    "leetcode",
+    "cses"
+]
+
+[workspace.profile.release]
+opt-level = 3
+debug = false
+panic = "abort"
