@@ -11,14 +11,20 @@ fn solve<R: Read, W: Write>(inner_stdin: &mut R, inner_stdout: &mut W) {
         };
     }
 
-    if let Some(n_str) = token_scanner.next() {
-        let n: usize = n_str.parse().unwrap();
-        let mut ans = 0;
-        for _ in 0..n {
-            let val: i64 = next!(i64);
-            ans += val;
+    let n: usize = next!(usize);
+    for _ in 0..n {
+        let s: String = next!(String);
+        if s.len() > 10 {
+            writeln!(
+                inner_stdout,
+                "{}{}{}",
+                s.chars().next().unwrap(),
+                s.len() - 2,
+                s.chars().last().unwrap()
+            ).unwrap();
+        } else {
+            writeln!(inner_stdout, "{}", s).unwrap();
         }
-        writeln!(inner_stdout, "{}", ans).unwrap();
     }
 }
 

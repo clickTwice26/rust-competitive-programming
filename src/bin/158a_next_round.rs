@@ -11,15 +11,15 @@ fn solve<R: Read, W: Write>(inner_stdin: &mut R, inner_stdout: &mut W) {
         };
     }
 
-    if let Some(n_str) = token_scanner.next() {
-        let n: usize = n_str.parse().unwrap();
-        let mut ans = 0;
-        for _ in 0..n {
-            let val: i64 = next!(i64);
-            ans += val;
-        }
-        writeln!(inner_stdout, "{}", ans).unwrap();
+    let n: usize = next!(usize);
+    let k: usize = next!(usize);
+    let mut scores = Vec::with_capacity(n);
+    for _ in 0..n {
+        scores.push(next!(i32));
     }
+    let cutoff = scores[k - 1];
+    let count = scores.iter().filter(|&&x| x > 0 && x >= cutoff).count();
+    writeln!(inner_stdout, "{}", count).unwrap();
 }
 
 fn main() {

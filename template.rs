@@ -10,16 +10,6 @@ fn solve<R: Read, W: Write>(inner_stdin: &mut R, inner_stdout: &mut W) {
             token_scanner.next().unwrap().parse::<$t>().unwrap()
         };
     }
-
-    if let Some(n_str) = token_scanner.next() {
-        let n: usize = n_str.parse().unwrap();
-        let mut ans = 0;
-        for _ in 0..n {
-            let val: i64 = next!(i64);
-            ans += val;
-        }
-        writeln!(inner_stdout, "{}", ans).unwrap();
-    }
 }
 
 fn main() {
